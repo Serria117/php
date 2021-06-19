@@ -25,7 +25,6 @@
         if ($result->num_rows>0) {
             return false;
         }else return true;
-        $conn->close();
     }
     function checkDupPhone($phone){
         $conn = connect();
@@ -34,7 +33,6 @@
         if ($result->num_rows>0) {
             return false;
         }else return true;
-        $conn->close();
     }
 
     function registerUser($name, $phone, $email, $pass){
@@ -60,7 +58,6 @@
                 die ("<span style=\"color: red;\">The email or phone number you entered has already registered.<span>");
             }
         }
-        $conn->close();
     }
     function logIn($email, $pass){
         $conn = connect();
@@ -79,6 +76,6 @@
         } else {
             return null;
         }
-        $conn->close();
+
     }
 ?>
