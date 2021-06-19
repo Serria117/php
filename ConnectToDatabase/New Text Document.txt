@@ -1,0 +1,7 @@
+if($ketquaSelect->num_rows>0) {
+    while($row = $ketquaSelect->fetch_assoc()){
+		echo '<br/> Id: ' . $row['studentId'] . ', Name : ' . $row['studentName'] .', phone: ' .$row['studentPhone'] .'<br/>'; 
+	}
+	
+Hàm fetch_assoc() có tác dụng trả về dữ liệu của từng dòng từ đối tượng $ketquaSelect dưới dạng 1 array, 
+trong đó $ketquaSelect là kết quả của 1 truy vấn trong database thông qua hàm mysqli_query();

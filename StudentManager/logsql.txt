@@ -1,0 +1,6 @@
+
+The query 'INSERT INTO sinhvien (studentID, studentName, Phone, Email, classID) VALUES (NULL, 'Hiệp', '0987654321', 'hiep@gmail.com', '2008')' has been executed at: 10:16:46am -- 17/06/2021
+The query 'INSERT INTO sinhvien (studentID, studentName, Phone, Email, classID) VALUES (NULL, 'Nhi', '098767657', 'nhi@gmail.com', '2008')' has been executed at: 11:32:08am -- 17/06/2021
+The query 'INSERT INTO sinhvien (studentID, studentName, Phone, Email, classID) VALUES (NULL, 'Minh Quân', '9088978776', 'quan@gmail.com', '2009')' has been executed at: 13:37:38pm -- 17/06/2021
+The query 'INSERT INTO sinhvien (studentID, studentName, Phone, Email, classID) VALUES (NULL, 'Tuấn Anh', '0987987654', 'tuananh@gmail.com', '2011')' has been executed at: 19:26:32pm -- 17/06/2021
+The query 'INSERT INTO sinhvien (studentID, studentName, Phone, Email, classID) VALUES (NULL, 'aaâ', '', '', '2008')' has been executed at: 19:34:51pm -- 17/06/2021

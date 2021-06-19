@@ -1,0 +1,2 @@
+The query 'INSERT INTO account (Pass,Name,Email)
+    VALUES ('0987654','Thanh Hà','ha@gmail.com')' has been executed at: 16:03:04pm -- 18/06/2021

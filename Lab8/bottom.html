@@ -1,0 +1,11 @@
+        <hr>
+        <br>
+    </div>
+</body>
+<script>
+  //Không cho phép resubmit form khi người dùng refresh page (F5)
+    if ( window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+</html>
