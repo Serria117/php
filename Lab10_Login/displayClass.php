@@ -36,7 +36,7 @@
             tr:nth-child(odd){
                 background-color: white;
             }
-            a{
+            .btn{
                 /* border: 1px solid; */
                 background-color: #008c25;
                 color: white;
@@ -51,10 +51,12 @@
     <body>
         <div class="container">
             <h2>Class list</h2>
-            <?php viewClass(); ?>
+            <?php
+                viewClass(); 
+            ?>
             <br>
             <hr>
-            <a href="Welcome.php">Back</a><br>
+            <a class="btn" href="Welcome.php">Back</a><br>
         </div>
     </body>
 </html>

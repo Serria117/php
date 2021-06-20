@@ -36,7 +36,7 @@
             tr:nth-child(even){
                 background-color: white;
             }
-            a{
+            a.btn{
                 /* border: 1px solid; */
                 padding: 5px;
                 text-decoration: none;
@@ -52,10 +52,18 @@
     <body>
         <div class="container">
             <h2>Student list</h2>
-            <?php viewStudent(); ?>
+            <?php
+                if(isset($_SESSION['userType'])){
+                    viewClass(); 
+                    echo $_SESSION['userType'];
+                }else {
+                    echo "You must <a href=\"login.php\">log in</a> to view Student list.";
+                }
+                
+            ?>
             <br>
             <hr>
-            <a href="Welcome.php">Back</a><br>
+            <a class="btn" href="Welcome.php">Back</a><br>
         </div>
     </body>
 </html>
