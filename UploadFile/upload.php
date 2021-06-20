@@ -2,7 +2,12 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Upload File</title>
+        <style>
+            h2{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+        </style>
     </head>
     <body>
         <h2>Upload file with PHP</h2>
