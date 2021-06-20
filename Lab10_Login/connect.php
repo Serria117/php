@@ -12,7 +12,7 @@
     function checkPhone($phone){
         $conn = connect();
         if($conn != null){
-            $sql = "SELECT COUNT(svPhone) OVER (ORDER by svPhone) FROM student WHERE svPhone = ?";
+            $sql = "SELECT phone FROM student WHERE phone = ?";
             $prepStm = $conn->prepare($sql);
             $prepStm->bind_param("s", $phone);
             $prepStm->execute();
@@ -27,9 +27,8 @@
     function checkEmail($email){
         $conn = connect();
         if($conn != null){
-            $sql = "SELECT COUNT(svEmail) OVER (ORDER by svEmail) FROM student WHERE svEmail = ?";
+            $sql = "SELECT email FROM student WHERE email = ?";
             $prepStm = $conn->prepare($sql);
-            $prepStm->bind_param("s", $email);
             $prepStm->execute();
             $result = $prepStm->get_result();
             if ($result->num_rows>0) {
@@ -39,8 +38,7 @@
         else die ("Connection failed.");
     }
 
-
-    function register($name, $email, $phone, $pass){
+    function register($name, $email, $phone, $class){
         $conn = connect();
         if($conn === null){
             die("Connection failed.");
@@ -52,29 +50,66 @@
                 die("Email or Phone has already been taken.");
             }
         }
+        $sql = "INSERT INTO student (name, email, phone, class) VALUES (?, ?, ?, ?)";
+        $stm = $conn->prepare($sql);
+        $stm->bind_param("ssss", $name, $email, $phone, $class);
+        $stm->execute();
+        $stm->close();
     }
 
-
-
-    function logIn($email, $pass) {
+    function Login($name, $pass){
         $conn = connect();
-        $sql_logIn = "SELECT * FROM student WHERE svEmail = ? AND svPass = ?";
-        if($conn != null){
-            $prepStm = $conn->prepare($sql_logIn);
-            $prepStm->bind_param("ss", $email, $pass);
-            $prepStm->execute();
-            $result = $prepStm->get_result();
-            $prepStm->close();
-            $conn->close();
+        $sql = "SELECT username, userType, pass FROM users WHERE username = ? and pass = ?";
+        $prep = $conn->prepare($sql);
+        $prep->bind_param("ss", $name, $pass);
+        $prep->execute();
+        $result = $prep->get_result();
+        $prep->close();
+        if ($result->num_rows>0){
+            while($row=$result->fetch_assoc()){
+                $type = $row['userType']; //get the type of the user's account from database
+            }
+            if($type == "admin"){
+                return 1; //if the user's type is 'admin' then return 1 and grand access to the database
+            }else if($type == "user"){
+                return 0; //if the user's type is 'user' then return 0
+            }else return -1; //value -1 mean no username and password match in database
+        }else return -1;
+    }
+
+    function viewSutdent(){
+        $conn = connect();
+        $sql = "SELECT * FROM student";
+        $result = $conn->query($sql);
+        if ($result->num_rows>0) {
+            echo "
+                <table>
+                <tr><th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Class</th>
+                </tr>";
+            while($row = $result->fetch_assoc()){
+                echo "<tr><td>".$row['name']."</td><td>".$row['email']."</td><td>".$row['phone']."</td><td>".$row['class']."</td></tr>";
+            }
+            echo "</table>";
         }
-        else {
-            die ("Connection failed.");
-        }
-        if ($result->num_rows=0) {
-            return null;
-        }
-        else {
-            return $result;
+    }
+
+    function viewClass(){
+        $conn = connect();
+        $sql = "SELECT * FROM class";
+        $result = $conn->query($sql);
+        if ($result->num_rows>0) {
+            echo "
+                <table>
+                <tr><th>Class ID</th>
+                <th>Class Name</th>
+                </tr>";
+            while($row = $result->fetch_assoc()){
+                echo "<tr><td>".$row['classID']."</td><td>".$row['className']."</td></tr>";
+            }
+            echo "</table>";
         }
     }
 ?>
