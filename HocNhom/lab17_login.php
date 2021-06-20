@@ -1,3 +1,4 @@
+<?php session_start(); unset($_SESSION['userName']);?>
 <html>
     <head> </head>
     <body>
@@ -5,32 +6,26 @@
     <center><h2> Login </h2> </center>
     <?php
     include_once './lab17_connDB.php';
-    session_start() ;
     $login = NULL;
     $svPhone  ;$svPass ;
     if (isset($_POST['login'])) {
-        if(isset($_POST['svPhone']) && isset($_POST['svPass'])) {
-                    $svPhone  = $_POST['svPhone'] ;
-                    $svPass = $_POST['svPass']   ;
-                    $ketqua = getLogin($svPhone, $svPass) ;
-                    if(isset($ketqua) && is_object($ketqua)) {
-                        if($ketqua->num_rows>0) {
-                        echo ' login success !' ;
-                        if(empty($_SESSION['createTime'])){
-                        $_SESSION['createTime'] = time() ;
-                        }
-                        $_SESSION['svPhoneLogin']  = $svPhone;
-                        } else  {  echo 'login fail ';
-                        $_SESSION['svPhoneLogin'] = NULL;
-                        }
-                    }else  {  echo 'login fail ';
-                        $_SESSION['svPhoneLogin'] = NULL;
-                    }
+        if(empty($_POST['svPhone']) || empty($_POST['svPass'])){ //Kiểm tra không để trống thông tin đăng nhập
+            echo ("Không được để trống thông tin đăng nhập.");
+        } else {
+            $svPhone = $_POST['svPhone'];
+            $svPass = $_POST['svPass'];
+            $kq = getLogin($svPhone, $svPass);
+            if($kq === 0 ){                                     //Kiểm tra thông tin đăng nhập
+                echo ("Thông tin đăng nhập sai.");
+            }else {
+                echo "Đăng nhập thành công";
+                while ($row = $kq->fetch_assoc()){
+                    $userName = $row['svName'];                 // Lấy userName từ database
+                }
+                $_SESSION['userName'] = $userName;              //Khởi tạo biến session chứa userName
+                header("location: lab17_addStudent.php");
+            }
         }
-            if(isset($_SESSION['svPhoneLogin'])) {
-            $login = $_SESSION['svPhoneLogin'];
-            echo   '<br/> so DT : ' . $login . ' đã đang nhập ' ;
-        }else {    echo  ' <br/>Chưa  đang nhập ' ; }
     }
 
     ?>
