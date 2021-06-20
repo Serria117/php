@@ -23,7 +23,7 @@
                     $userName = $row['svName'];                 // Lấy userName từ database
                 }
                 $_SESSION['userName'] = $userName;              //Khởi tạo biến session chứa userName
-                // header("location: lab17_addStudent.php");
+                header("location: lab17_addStudent.php");
             }
         }
     }
