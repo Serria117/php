@@ -117,6 +117,7 @@
                 $qlsv->select($sql_sel);
                 $qlsv->display();
             }
+            
             ?>
 
          </div>
