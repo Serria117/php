@@ -80,7 +80,7 @@
                         $pass = $_POST['pass'];
                         $pass = sha1($pass);
                         $login = logIn($name, $pass);
-                        if($login == 1){
+                        if($login == 1) {
                             echo ("Welcome admin");
                             $_SESSION['userType'] = 'admin';
                             $_SESSION['userName'] = $name;
@@ -92,7 +92,7 @@
                             $_SESSION['userName'] = $name;
                             $_SESSION['time'] = time();
                             header ("location: welcome.php");
-                        }else echo "Invalid username or password";
+                        } else echo "Invalid username or password";
                     }
                 }
             ?>
