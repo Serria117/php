@@ -1,3 +1,13 @@
+<?php
+session_start();
+//Nếu không tồn tại biến session userName hoặc biến không mang tên tài khoản 'root' thì không cho thực hiện tiếp
+if(!isset($_SESSION['userName']) || $_SESSION['userName'] != 'root'){ 
+    echo "Tài khoản của bạn không được phép thực hiện chức năng này.<br>";
+    echo "<a href=\"lab17_login.php\">Back</a>";
+    exit();
+}
+
+?>
 <html> 
     <head> 
     <body style="background-image: url('uploads/StatusBar_01.PNG'); background-repeat: no-repeat; background-size: cover">

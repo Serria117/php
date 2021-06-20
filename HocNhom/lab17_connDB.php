@@ -47,10 +47,11 @@
         $connect = getConnect_X();
         if(!$connect->connect_error) {
             $svPassmd5 = md5($svPass);
-            $sqlSelectUser = "select  svPhone, svPass  from lab17 where svPhone = $svPhone and svPass='$svPassmd5'";
-            $kq = $connect->query($sqlSelectUser) ;
-            return $kq ;       
-        }
-        return 0;
+            $sqlSelectUser = "select  *  from student where svPhone = '$svPhone' and svPass='$svPassmd5'";
+            $kq = $connect->query($sqlSelectUser);
+            if (isset($kq) && $kq->num_rows>0) {
+                return $kq;  
+            }else return 0;       
+        } else return 0;
     }
 ?>
