@@ -77,6 +77,7 @@
                         echo "You must enter username and password.";
                     } else {
                         $name = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+                        $pass = $_POST['pass'];
                         $pass = sha1($pass);
                         $login = logIn($name, $pass);
                         if($login == 1){
@@ -85,7 +86,7 @@
                             $_SESSION['userName'] = $name;
                             $_SESSION['time'] = time();
                             header ("location: welcome.php");
-                        }else if($login == 0){
+                        } else if($login == 0) {
                             echo ("Welcome user");
                             $_SESSION['userType'] = 'user';
                             $_SESSION['userName'] = $name;
