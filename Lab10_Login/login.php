@@ -41,7 +41,6 @@
                 display: inline-block;
                 color: white;
                 background-color: #81a614;
-
             }
 
         </style>
@@ -77,8 +76,7 @@
                     if (empty($_POST['username']) || empty($_POST['pass'])) {
                         echo "You must enter username and password.";
                     } else {
-                        $name = htmlspecialchars($_POST['username']);
-                        $pass = htmlspecialchars($_POST['pass']);
+                        $name = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
                         $pass = sha1($pass);
                         $login = logIn($name, $pass);
                         if($login == 1){

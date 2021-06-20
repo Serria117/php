@@ -107,7 +107,7 @@
                 //update sĩ số:
                 $sql = "UPDATE `class` SET `classNum` = (SELECT COUNT(`classID`) FROM `sinhvien` WHERE `classID` = '$class') WHERE `class`.`classID` = '$class'";
                 $qlsv->update($sql);
-                //Hiển thị bảng:
+                //Hiển thị danh sách sinh viên:
                 $sql_sel = "SELECT `studentID`, `studentName`, `Phone`, `Email`, `className` FROM `sinhvien` INNER JOIN `class` where sinhvien.classID = class.classID";
                 $qlsv->select($sql_sel);
                 $qlsv->display();
