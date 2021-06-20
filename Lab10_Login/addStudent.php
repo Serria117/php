@@ -1,0 +1,124 @@
+<?php
+    session_start();
+    include 'connect.php';
+?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Add Student</title>
+        <style media="screen">
+            .container{
+                margin: 0 auto;
+                width: 40%;
+                text-align: center;
+                background-color: #cccccc;
+                font-family: tahoma;
+                padding-bottom: 20px;
+                border-radius: 13px;
+            }
+            h2{
+                padding: 10px;
+                background-color: #d100b2;
+                color: white;
+                border-top-left-radius: 13px;
+                border-top-right-radius: 13px;
+            }
+            table{
+                border-collapse: collapse;
+                margin: 0 auto;
+                width: 60%;
+                text-align: center;
+            }
+            tr{
+                text-align: left;
+            }
+            a{
+                /* border: 1px solid; */
+                background-color: #d100b2;
+                color: white;
+                padding: 5px;
+                text-decoration: none;
+                border-radius: 6px;
+                width: 120px;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Register new student</h2>
+            <?php
+                if(!isset($_SESSION['userType']) || $_SESSION['userType'] != 'admin'){
+                echo "You don't have permission to perform this function.<br><hr>";
+                echo "<a href=\"welcome.php\">Go back</a> or <a href=\"login.php\">login</a>";
+                exit();
+                }
+            ?>
+            <form class="" action="" method="post">
+                <table>
+                    <tr>
+                        <td class="form">Student name:</td>
+                        <td class="form">
+                            <input style="height: 20px;" type="text" name="studentName" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="form">Email:</td>
+                        <td class="form">
+                            <input style="height: 20px;" type="text" name="email" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="form">Phone:</td>
+                        <td class="form">
+                            <input style="height: 20px;" type="text" name="phone" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="form">Class: </td>
+                        <td class="form">
+                            <select style="height: 24px;" class="className" name="class">
+                                <?php
+                                    $conn = connect();
+                                    $sql = "SELECT className from class";
+                                    $result = $conn->query($sql);
+                                    if ($result->num_rows>0) {
+                                        while($row = $result->fetch_assoc()){
+                                            echo "<option>".$row['className']."</option>";
+                                        }
+                                    }
+                                ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td colspan="2">
+                            <input style="width: 120px;height: 30px;" type="submit" name="register" value="Register">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <hr>
+            <a href="Welcome.php">Back</a><br>
+            <?php
+                if (isset($_POST['register'])) {
+                    if (empty($_POST['studentName']) || empty($_POST['email']) || empty($_POST['phone'])) {
+                        die ("All fields are required.");
+                    }
+                    $name = $_POST['studentName'];
+                    $email = $_POST['email'];
+                    $phone = $_POST['phone'];
+                    $class = $_POST['class'];
+                    register($name, $email, $phone, $class);
+                    echo "New student registered successfully.";
+                }
+            ?>
+        </div>
+    </body>
+    <script type="text/javascript">
+        if (window.history.replaceState){
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+</html>

@@ -86,7 +86,7 @@
                 }
 
                 if (isset($_POST['viewStudent'])) {
-                    viewSutdent();
+                    viewStudent();
                 }
                 if (isset($_POST['viewClass'])) {
                     viewClass();

@@ -44,7 +44,7 @@
                 echo "Login success.<br>";
                 echo "Welcome user: ".$_SESSION['user'];
                 echo "<br>You have logged in at: ".date("h:i:sa - d/m/Y", $_SESSION['time']);
-                echo "<br>You have logged in for: ".$duration." s";
+                echo "<br>You have logged in for: ".$duration." s"; //HIển thị thời gian từ lúc đăng nhập
                 if ($duration >= 300) { //khi duration của phiên làm việc >300s thì đến trang logout để đăng xuất
                     header("location: logOut.php");
                 }

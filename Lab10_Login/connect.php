@@ -29,6 +29,7 @@
         if($conn != null){
             $sql = "SELECT email FROM student WHERE email = ?";
             $prepStm = $conn->prepare($sql);
+            $prepStm->bind_param("s", $email);
             $prepStm->execute();
             $result = $prepStm->get_result();
             if ($result->num_rows>0) {
@@ -37,6 +38,7 @@
         }
         else die ("Connection failed.");
     }
+
 
     function register($name, $email, $phone, $class){
         $conn = connect();
@@ -57,6 +59,28 @@
         $stm->close();
     }
 
+    function addClass($name){
+        $conn = connect();
+        if($conn === null){
+            die("Connection failed.");
+        }
+        else{
+            $sql = "SELECT className FROM class WHERE className = ?";
+            $prepStm = $conn->prepare($sql);
+            $prepStm->bind_param("s", $name);
+            $prepStm->execute();
+            $result = $prepStm->get_result();
+            if ($result->num_rows>0) {
+                die("The class name you entered has already existed in the database.");
+            } else {
+                $sql_ins = "INSERT INTO class (className) VALUES (?)";
+                $stm = $conn->prepare($sql_ins);
+                $stm->bind_param("s", $name);
+                $stm->execute();
+                $stm->close();
+            }
+        }
+    }
     function Login($name, $pass){
         $conn = connect();
         $sql = "SELECT username, userType, pass FROM users WHERE username = ? and pass = ?";
@@ -77,7 +101,7 @@
         }else return -1;
     }
 
-    function viewSutdent(){
+    function viewStudent(){
         $conn = connect();
         $sql = "SELECT * FROM student";
         $result = $conn->query($sql);
