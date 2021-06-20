@@ -1,4 +1,8 @@
-<?php session_start(); include "connect.php";?>
+<?php
+    session_start();
+    unset($_SESSION['userType'],$_SESSION['userName']);
+    include "connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -16,7 +20,7 @@
             }
             h2{
                 padding: 10px;
-                background-color: #ffa80f;
+                background-color: #81a614;
                 color: white;
                 border-top-left-radius: 13px;
                 border-top-right-radius: 13px;
@@ -28,6 +32,16 @@
             td{
                 padding: 5px;
                 text-align: left;
+            }
+            a{
+                padding: 5px;
+                text-decoration: none;
+                border-radius: 6px;
+                width: 120px;
+                display: inline-block;
+                color: white;
+                background-color: #81a614;
+
             }
 
         </style>
@@ -57,7 +71,7 @@
                     </tr>
                 </table>
             </form>
-            <a href="Welcome.php">Back</a><br><hr>
+
             <?php
                 if (isset($_POST['login'])) {
                     if (empty($_POST['username']) || empty($_POST['pass'])) {
@@ -71,16 +85,20 @@
                             echo ("Welcome admin");
                             $_SESSION['userType'] = 'admin';
                             $_SESSION['userName'] = $name;
+                            $_SESSION['time'] = time();
                             header ("location: welcome.php");
                         }else if($login == 0){
                             echo ("Welcome user");
                             $_SESSION['userType'] = 'user';
                             $_SESSION['userName'] = $name;
+                            $_SESSION['time'] = time();
                             header ("location: welcome.php");
                         }else echo "Invalid username or password";
                     }
                 }
             ?>
+            <hr>
+            <a href="Welcome.php">Back</a><br>
         </div>
     </body>
     <script type="text/javascript">

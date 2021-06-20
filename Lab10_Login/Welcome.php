@@ -61,6 +61,11 @@
             <?php
             if(isset($_SESSION['userName'])){
                 echo "Welcome: ".$_SESSION['userName']."<br>";
+                $duration = time() - $_SESSION['time'];
+                echo "time left: ".(100-$duration)." s<br>";
+                if ($duration > 100) {
+                    header("location: logout.php");
+                }
                 echo "<a href=\"logout.php\">logout</a><br><br>";
             }else echo "<p>Please <a href=\"login.php\">login</a> to use administrative functions.</p>";
             ?>
