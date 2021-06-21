@@ -19,7 +19,7 @@
             }
             h2{
                 padding: 10px;
-                background-color: #d100b2;
+                background-color: #6645ba;
                 color: white;
                 border-top-left-radius: 13px;
                 border-top-right-radius: 13px;
@@ -46,7 +46,7 @@
                 text-align: left;
             }
             a{
-                background-color: #d100b2;
+                background-color: #6645ba;
                 color: white;
                 padding: 5px;
                 text-decoration: none;

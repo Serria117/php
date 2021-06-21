@@ -43,8 +43,8 @@
             }
             .as:hover{
                 color: white;
-                background-color: #d100b2;
-                border: 1px solid #d100b2;
+                background-color: #6645ba;
+                border: 1px solid #6645ba;
                 transition: 0.1s;
             }
             .ac:hover{

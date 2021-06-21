@@ -115,10 +115,11 @@
                 <th>Edit</th>
                 <th>Delete</th>
                 </tr>";
-            while($row = $result->fetch_assoc()){
-                echo "<tr><td>".$row['name']."</td><td>".$row['email']."</td><td>".$row['phone']."</td><td>".$row['class']."</td>
-                <td><a class=\"update\" href=\"editStudent.php?id=".$row['id']."&studentName=".$row['name']."&email=".$row['email']."&phone=".$row['phone']."&class=".$row['class']."\">Edit</a>
-                </td><td><a class=\"del\" href=\"DeleteStudent.php?id=".$row['id']."\">Delete</a></td>
+            while($row = $result->fetch_assoc()) {
+                echo "<tr>
+                <td>".$row['name']."</td><td>".$row['email']."</td><td>".$row['phone']."</td><td>".$row['class']."</td>
+                <td><a class=\"update\" href=\"editStudent.php?id=".$row['id']."&studentName=".$row['name']."&email=".$row['email']."&phone=".$row['phone']."&class=".$row['class']."\">Edit</a></td>
+                <td><a class=\"del\" href=\"DeleteStudent.php?id=".$row['id']."\" onclick=\"return confirm('Are you sure you want to delete this item?');\">Delete</a></td>
                 </tr>";
             }
             echo "</table>";
@@ -142,7 +143,7 @@
         }
     }
 
-    function updateStudent($name, $email, $phone, $class, $id){
+    function updateStudent($name, $email, $phone, $class, $id) {
         $conn = connect();
         $sql = "UPDATE student
                 SET name = ?, email = ?, phone = ?, class = ?
