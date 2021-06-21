@@ -18,7 +18,7 @@
             }
             h2{
                 padding: 10px;
-                background-color: #ffa80f;
+                background-color: #003d87;
                 color: white;
                 border-top-left-radius: 13px;
                 border-top-right-radius: 13px;
@@ -48,7 +48,7 @@
                 width: 120px;
                 display: inline-block;
                 color: white;
-                background-color: #ffa217;
+                background-color: #003d87;
 
             }
             a.update{
@@ -77,6 +77,8 @@
                     viewStudent();
                 }else {
                     echo "You must <a href=\"login.php\">log in</a> to view Student list.";
+                    echo "<br><hr><a class=\"btn\" href=\"Welcome.php\">Back</a>";
+                    exit();
                 }
 
             ?>

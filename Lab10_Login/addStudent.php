@@ -116,10 +116,10 @@
                     if (empty($_POST['studentName']) || empty($_POST['email']) || empty($_POST['phone'])) {
                         die ("All fields are required.");
                     }
-                    $name = $_POST['studentName'];
-                    $email = $_POST['email'];
-                    $phone = $_POST['phone'];
-                    $class = $_POST['class'];
+                    $name = filter_var($_POST['studentName'], FILTER_SANITIZE_STRING);
+                    $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+                    $phone = filter_var($_POST['phone'],FILTER_SANITIZE_STRING);
+                    $class = filter_var($_POST['class'], FILTER_SANITIZE_STRING);
                     register($name, $email, $phone, $class);
                     echo "New student registered successfully.";
                 }

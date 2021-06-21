@@ -112,7 +112,7 @@ $class = $_GET['class'];
                                 }
                             ?>
                         </select>
-                        <input style="height: 19px; width: 80px;" type="text" name="currentClass" value="<?php echo $class ?>" disabled>
+                        <input style="height: 18px; width: 84px;" type="text" name="currentClass" value="<?php echo $class ?>" disabled>
                     </td>
                 </td>
                 </tr>

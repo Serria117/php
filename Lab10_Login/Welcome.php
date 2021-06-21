@@ -7,7 +7,7 @@
         <style media="screen">
             .container{
                 margin: 0 auto;
-                width: 40%;
+                width: 50%;
                 text-align: center;
                 background-color: #cccccc;
                 font-family: tahoma;
@@ -31,8 +31,8 @@
             }
             .vs:hover{
                 color: white;
-                background-color: #ffa217;
-                border: 1px solid #ffa217;
+                background-color: #003d87;
+                border: 1px solid #003d87;
                 transition: 0.1s;
             }
             .vc:hover{
@@ -62,16 +62,19 @@
             if(isset($_SESSION['userName'])){
                 echo "Welcome: ".$_SESSION['userName']."<br>";
                 $duration = time() - $_SESSION['time'];
-                echo "time left: ".(10000-$duration)." s<br>";
-                if ($duration > 10000) {
+                echo "time left: ".(1000-$duration)." s<br>";
+                if ($duration > 1000) {
+                    unset($_POST['userType'], $_SESSION['userName']);
                     header("location: logout.php");
                 }
                 echo "<a href=\"logout.php\">logout</a><br><br>";
             }else echo "<p>Please <a href=\"login.php\">login</a> to use administrative functions.</p>";
             ?>
             <div class="link">
-                <a class="vs" href="displayUser.php">View Students</a>  <a class="vc" href="displayClass.php">View Classes</a>
-                <a class="as" href="addStudent.php">Register Student</a>  <a class="ac" href="addClass.php">Add Class</a>
+                <a class="vs" href="displayUser.php">View Students</a>&nbsp;&nbsp;
+                <a class="vc" href="displayClass.php">View Classes</a>&nbsp;&nbsp;
+                <a class="as" href="addStudent.php">Register Student</a>&nbsp;&nbsp;  
+                <a class="ac" href="addClass.php">Add Class</a>
             </div>
         </div>
     </body>
