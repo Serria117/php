@@ -125,9 +125,9 @@ $class = $_GET['class'];
         </form>
         <?php
             if (isset($_POST['save'])) {
-                if(empty($_POST['studentName']) || empty($_POST['email']) || empty($_POST['phone'])){
+                if (empty($_POST['studentName']) || empty($_POST['email']) || empty($_POST['phone'])) {
                     die ("You must enter all required fields.");
-                }else {
+                } else {
                     $newName = filter_var($_POST['studentName'], FILTER_SANITIZE_STRING);
                     $newEmail = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
                     $newPhone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
