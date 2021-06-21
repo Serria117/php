@@ -27,14 +27,25 @@
             table{
                 border-collapse: collapse;
                 margin: 0 auto;
-                width: 60%;
+                width: 53%;
                 text-align: center;
+                table-layout: fixed;
             }
             tr{
+                text-align: center;
+            }
+            td{
+                padding-bottom: 3px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            td:nth-child(odd){
+                text-align: right;
+            }
+            td:nth-child(even){
                 text-align: left;
             }
             a{
-                /* border: 1px solid; */
                 background-color: #d100b2;
                 color: white;
                 padding: 5px;
@@ -90,17 +101,16 @@
                                     }
                                 ?>
                             </select>
-                        </td>
                     </tr>
-                    <tr style="text-align: center;">
-                        <td colspan="2">
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
                             <input style="width: 120px;height: 30px;" type="submit" name="register" value="Register">
                         </td>
                     </tr>
                 </table>
             </form>
             <hr>
-            <a href="Welcome.php">Back</a><br>
+            <a href="Welcome.php">Back</a> <a href="displayUser.php">Student List</a><br>
             <?php
                 if (isset($_POST['register'])) {
                     if (empty($_POST['studentName']) || empty($_POST['email']) || empty($_POST['phone'])) {

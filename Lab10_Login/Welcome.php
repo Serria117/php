@@ -16,7 +16,7 @@
             }
             h2{
                 padding: 10px;
-                background-color: #af62fc;
+                background-color: cadetblue;
                 color: white;
                 border-top-left-radius: 13px;
                 border-top-right-radius: 13px;
@@ -62,8 +62,8 @@
             if(isset($_SESSION['userName'])){
                 echo "Welcome: ".$_SESSION['userName']."<br>";
                 $duration = time() - $_SESSION['time'];
-                echo "time left: ".(100-$duration)." s<br>";
-                if ($duration > 100) {
+                echo "time left: ".(10000-$duration)." s<br>";
+                if ($duration > 10000) {
                     header("location: logout.php");
                 }
                 echo "<a href=\"logout.php\">logout</a><br><br>";

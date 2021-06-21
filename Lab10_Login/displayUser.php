@@ -9,7 +9,7 @@
         <style media="screen">
             .container{
                 margin: 0 auto;
-                width: 40%;
+                width: 60%;
                 text-align: center;
                 background-color: #cccccc;
                 font-family: calibri;
@@ -26,12 +26,16 @@
             table{
                 border-collapse: collapse;
                 margin: 0 auto;
-                width: 60%;
+                width: 90%;
                 text-align: center;
             }
             th{
                 background-color: #4d718c;
                 color: white;
+                padding: 10px;;
+            }
+            td{
+                padding: 10px;
             }
             tr:nth-child(even){
                 background-color: white;
@@ -47,6 +51,22 @@
                 background-color: #ffa217;
 
             }
+            a.update{
+                text-decoration: none;
+                border-radius: 4px;
+                width: 60px;
+                display: inline-block;
+                color: white;
+                background-color: #008009;
+            }
+            a.del{
+                text-decoration: none;
+                border-radius: 4px;
+                width: 60px;
+                display: inline-block;
+                color: white;
+                background-color: #b80000;
+            }
         </style>
     </head>
     <body>
@@ -54,16 +74,15 @@
             <h2>Student list</h2>
             <?php
                 if(isset($_SESSION['userType'])){
-                    viewClass(); 
-                    echo $_SESSION['userType'];
+                    viewStudent();
                 }else {
                     echo "You must <a href=\"login.php\">log in</a> to view Student list.";
                 }
-                
+
             ?>
             <br>
             <hr>
-            <a class="btn" href="Welcome.php">Back</a><br>
+            <a class="btn" href="Welcome.php">Back</a> <a class="btn" href="addStudent.php">Add Student</a><br>
         </div>
     </body>
 </html>

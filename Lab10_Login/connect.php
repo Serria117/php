@@ -112,9 +112,14 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Class</th>
+                <th>Edit</th>
+                <th>Delete</th>
                 </tr>";
             while($row = $result->fetch_assoc()){
-                echo "<tr><td>".$row['name']."</td><td>".$row['email']."</td><td>".$row['phone']."</td><td>".$row['class']."</td></tr>";
+                echo "<tr><td>".$row['name']."</td><td>".$row['email']."</td><td>".$row['phone']."</td><td>".$row['class']."</td>
+                <td><a class=\"update\" href=\"editStudent.php?id=".$row['id']."&studentName=".$row['name']."&email=".$row['email']."&phone=".$row['phone']."&class=".$row['class']."\">Edit</a>
+                </td><td><a class=\"del\" href=\"DeleteStudent.php?id=".$row['id']."\">Delete</a></td>
+                </tr>";
             }
             echo "</table>";
         }
@@ -135,5 +140,27 @@
             }
             echo "</table>";
         }
+    }
+
+    function updateStudent($name, $email, $phone, $class, $id){
+        $conn = connect();
+        $sql = "UPDATE student
+                SET name = ?, email = ?, phone = ?, class = ?
+                WHERE id = ?";
+        $stm = $conn->prepare($sql);
+        $stm->bind_param("ssssi",$name, $email, $phone, $class, $id);
+        $stm->execute();
+        $stm->close();
+        $conn->close();
+    }
+
+    function deleteStudent($id){
+        $conn = connect();
+        $sql = "DELETE FROM student WHERE id = ?";
+        $stm = $conn->prepare($sql);
+        $stm->bind_param("i", $id);
+        $stm->execute();
+        $stm->close();
+        $conn->close();
     }
 ?>
