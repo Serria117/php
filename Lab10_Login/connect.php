@@ -57,6 +57,7 @@
         $stm->bind_param("ssss", $name, $email, $phone, $class);
         $stm->execute();
         $stm->close();
+        $conn->close();
     }
 
     function Login($name, $pass){
@@ -79,7 +80,7 @@
         }else return -1;
     }
 
-    function viewClass(){
+    function viewClass() {
         $conn = connect();
         $sql = "SELECT * FROM class";
         $result = $conn->query($sql);
@@ -98,7 +99,7 @@
         $conn->close();
     }
 
-    function addClass($name){
+    function addClass($name) {
         $conn = connect();
         if($conn === null){
             die("Connection failed.");
@@ -121,11 +122,11 @@
         }
     }
 
-    function updateClassNum($class){
+    function updateClassNum($class) { //update total number of student in a class after add, update, delete a student.
         $conn = connect();
         $sql = "SELECT * FROM student WHERE class = '$class'";
         $result = $conn->query($sql);
-        $num = $result->num_rows;
+        $num = $result->num_rows;   //return the number of student in a class
         if(isset($num)){
             $sql_update = "UPDATE class SET classNum = '$num' WHERE className = '$class'";
             $conn->query($sql_update);
