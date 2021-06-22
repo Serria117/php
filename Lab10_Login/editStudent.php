@@ -135,6 +135,8 @@ $class = $_GET['class'];
                         $newClass = $class;
                     }else $newClass = $_POST['class'];
                     updateStudent($newName, $newEmail, $newPhone, $newClass, $id);
+                    updateClassNum($newClass);
+                    updateClassNum($class);
                     $name = '';
                     $email = '';
                     $phone = '';

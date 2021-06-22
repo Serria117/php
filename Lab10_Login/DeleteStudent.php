@@ -1,6 +1,7 @@
 <?php
 session_start(); include 'connect.php';
 (INT)$id = $_GET['id'];
+$class = $_GET['class'];
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -67,6 +68,7 @@ session_start(); include 'connect.php';
                 exit();
             }else
             deleteStudent($id);
+            updateClassNum($class);
             $_SESSION['msg'] = "<script>alert('Student deleted successfully')</script>";
             header("location: displayUser.php");
             ?>

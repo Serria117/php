@@ -88,9 +88,10 @@
                 <table>
                 <tr><th>Class ID</th>
                 <th>Class Name</th>
+                <th>Total student</th>
                 </tr>";
             while($row = $result->fetch_assoc()){
-                echo "<tr><td>".$row['classID']."</td><td>".$row['className']."</td></tr>";
+                echo "<tr><td>".$row['classID']."</td><td>".$row['className']."</td><td>".$row['classNum']."</td></tr>";
             }
             echo "</table>";
         }
@@ -120,6 +121,18 @@
         }
     }
 
+    function updateClassNum($class){
+        $conn = connect();
+        $sql = "SELECT * FROM student WHERE class = '$class'";
+        $result = $conn->query($sql);
+        $num = $result->num_rows;
+        if(isset($num)){
+            $sql_update = "UPDATE class SET classNum = '$num' WHERE className = '$class'";
+            $conn->query($sql_update);
+        }
+        $conn->close();
+    }
+
     function viewStudent(){
         $conn = connect();
         $sql = "SELECT * FROM student";
@@ -138,7 +151,7 @@
                 echo "<tr>
                 <td>".$row['name']."</td><td>".$row['email']."</td><td>".$row['phone']."</td><td>".$row['class']."</td>
                 <td><a class='update' href='editStudent.php?id=".$row['id']."&studentName=".$row['name']."&email=".$row['email']."&phone=".$row['phone']."&class=".$row['class']."'>Edit</a></td>
-                <td><a class='del' href='DeleteStudent.php?id=".$row['id']."' onclick=\"return confirm('Are you sure you want to delete student: ".$row['name']." - Class: ".$row['class']."?');\">Delete</a></td>
+                <td><a class='del' href='DeleteStudent.php?id=".$row['id']."&class=".$row['class']."' onclick=\"return confirm('Are you sure you want to delete student: ".$row['name']." - Class: ".$row['class']."?');\">Delete</a></td>
                 </tr>";
             }
             echo "</table>";

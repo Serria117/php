@@ -121,6 +121,7 @@
                     $phone = filter_var($_POST['phone'],FILTER_SANITIZE_STRING);
                     $class = filter_var($_POST['class'], FILTER_SANITIZE_STRING);
                     register($name, $email, $phone, $class);
+                    updateClassNum($class);
                     echo "New student registered successfully.";
                 }
             ?>
