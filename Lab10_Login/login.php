@@ -60,7 +60,7 @@
                     <tr>
                         <td>Password:</td>
                         <td>
-                            <input type="text" name="pass" value="">
+                            <input type="password" name="pass" value="">
                         </td>
                     </tr>
                     <tr>

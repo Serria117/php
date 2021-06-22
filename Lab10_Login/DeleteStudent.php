@@ -67,6 +67,7 @@ session_start(); include 'connect.php';
                 exit();
             }else
             deleteStudent($id);
+            $_SESSION['msg'] = "<script>alert('Student deleted successfully')</script>";
             header("location: displayUser.php");
             ?>
         </div>

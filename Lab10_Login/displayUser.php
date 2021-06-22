@@ -75,9 +75,13 @@
             <?php
                 if(isset($_SESSION['userType'])){
                     viewStudent();
+                    if(!empty($_SESSION['msg'])){
+                        echo $_SESSION['msg'];
+                    }
+                    unset($_SESSION['msg']);
                 }else {
-                    echo "You must <a href=\"login.php\">log in</a> to view Student list.";
-                    echo "<br><hr><a class=\"btn\" href=\"Welcome.php\">Back</a>";
+                    echo "You must <a href='login.php'>log in</a> to view Student list.";
+                    echo "<br><hr><a class= 'btn' href='Welcome.php'>Back</a>";
                     exit();
                 }
 

@@ -59,28 +59,6 @@
         $stm->close();
     }
 
-    function addClass($name){
-        $conn = connect();
-        if($conn === null){
-            die("Connection failed.");
-        }
-        else{
-            $sql = "SELECT className FROM class WHERE className = ?";
-            $prepStm = $conn->prepare($sql);
-            $prepStm->bind_param("s", $name);
-            $prepStm->execute();
-            $result = $prepStm->get_result();
-            if ($result->num_rows>0) {
-                die("The class name you entered has already existed in the database.");
-            } else {
-                $sql_ins = "INSERT INTO class (className) VALUES (?)";
-                $stm = $conn->prepare($sql_ins);
-                $stm->bind_param("s", $name);
-                $stm->execute();
-                $stm->close();
-            }
-        }
-    }
     function Login($name, $pass){
         $conn = connect();
         $sql = "SELECT username, userType, pass FROM users WHERE username = ? and pass = ?";
@@ -101,6 +79,47 @@
         }else return -1;
     }
 
+    function viewClass(){
+        $conn = connect();
+        $sql = "SELECT * FROM class";
+        $result = $conn->query($sql);
+        if ($result->num_rows>0) {
+            echo "
+                <table>
+                <tr><th>Class ID</th>
+                <th>Class Name</th>
+                </tr>";
+            while($row = $result->fetch_assoc()){
+                echo "<tr><td>".$row['classID']."</td><td>".$row['className']."</td></tr>";
+            }
+            echo "</table>";
+        }
+        $conn->close();
+    }
+
+    function addClass($name){
+        $conn = connect();
+        if($conn === null){
+            die("Connection failed.");
+        }
+        else{
+            $sql = "SELECT className FROM class WHERE className = ?";
+            $prepStm = $conn->prepare($sql);
+            $prepStm->bind_param("s", $name);
+            $prepStm->execute();
+            $result = $prepStm->get_result();
+            if ($result->num_rows>0) {
+                die("The class name you entered has already existed in the database.");
+            } else {
+                $sql_ins = "INSERT INTO class (className) VALUES (?)";
+                $stm = $conn->prepare($sql_ins);
+                $stm->bind_param("s", $name);
+                $stm->execute();
+                $stm->close();
+            }$conn->close();
+        }
+    }
+
     function viewStudent(){
         $conn = connect();
         $sql = "SELECT * FROM student";
@@ -118,29 +137,13 @@
             while($row = $result->fetch_assoc()) {
                 echo "<tr>
                 <td>".$row['name']."</td><td>".$row['email']."</td><td>".$row['phone']."</td><td>".$row['class']."</td>
-                <td><a class=\"update\" href=\"editStudent.php?id=".$row['id']."&studentName=".$row['name']."&email=".$row['email']."&phone=".$row['phone']."&class=".$row['class']."\">Edit</a></td>
-                <td><a class=\"del\" href=\"DeleteStudent.php?id=".$row['id']."\" onclick=\"return confirm('Are you sure you want to delete this item?');\">Delete</a></td>
+                <td><a class='update' href='editStudent.php?id=".$row['id']."&studentName=".$row['name']."&email=".$row['email']."&phone=".$row['phone']."&class=".$row['class']."'>Edit</a></td>
+                <td><a class='del' href='DeleteStudent.php?id=".$row['id']."' onclick=\"return confirm('Are you sure you want to delete student: ".$row['name']." - Class: ".$row['class']."?');\">Delete</a></td>
                 </tr>";
             }
             echo "</table>";
         }
-    }
-
-    function viewClass(){
-        $conn = connect();
-        $sql = "SELECT * FROM class";
-        $result = $conn->query($sql);
-        if ($result->num_rows>0) {
-            echo "
-                <table>
-                <tr><th>Class ID</th>
-                <th>Class Name</th>
-                </tr>";
-            while($row = $result->fetch_assoc()){
-                echo "<tr><td>".$row['classID']."</td><td>".$row['className']."</td></tr>";
-            }
-            echo "</table>";
-        }
+        $conn->close();
     }
 
     function updateStudent($name, $email, $phone, $class, $id) {
