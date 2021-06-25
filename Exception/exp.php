@@ -9,10 +9,10 @@
 
     //Cấu trúc try - catch
     try {
-        echo phepchia(1,4); //code thực hiện và hiển thị kết quả nếu không xảy ra ngoại lệ
+        echo phepchia(1,4); //code trông khối try {} thực hiện và trả về kết quả nếu không xảy ra ngoại lệ
     }
     catch (Exception $m) {
-        echo $m->getMessage(); //Nếu ngoại lễ xảy ra sẽ thực hiện code trong catch {}
+        echo $m->getMessage(); //Nếu ngoại lệ xảy ra sẽ thực hiện code trong khối catch {}
     }
     finally {
         if(isset($m)){
@@ -20,6 +20,19 @@
         }else {
             echo "<br>Program completed without error.";
         }
-        
+    }
+?>
+
+<?php
+    // Sử dụng try-catch và exception để kiểm tra kết nối mySQL
+    function dbconnect($host, $user, $pass, $db){
+        mysqli_report(MYSQLI_REPORT_ALL);
+        try {
+            $conn = new mysqli($host, $user, $pass, $db);
+            echo "Connect success.";
+            return $conn;
+        }catch (Exception $e){
+            echo "Connection failed. Reason: ".$e->getMessage();
+        }
     }
 ?>

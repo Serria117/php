@@ -69,12 +69,12 @@
         $result = $prep->get_result();
         $prep->close();
         if ($result->num_rows>0){
-            while($row=$result->fetch_assoc()){
+            while($row = $result->fetch_assoc()){
                 $type = $row['userType']; //get the type of the user's account from database
             }
-            if($type == "admin"){
+            if($type === "admin"){
                 return 1; //if the user's type is 'admin' then return 1 and grand access to the database
-            }else if($type == "user"){
+            }else if($type === "user"){
                 return 0; //if the user's type is 'user' then return 0
             }else return -1; //value -1 mean no username and password match in database
         }else return -1;
@@ -109,6 +109,7 @@
             $prepStm = $conn->prepare($sql);
             $prepStm->bind_param("s", $name);
             $prepStm->execute();
+            $prepStm->close();
             $result = $prepStm->get_result();
             if ($result->num_rows>0) {
                 die("The class name you entered has already existed in the database.");
