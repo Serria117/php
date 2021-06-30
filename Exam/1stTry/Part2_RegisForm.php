@@ -6,20 +6,29 @@
         if(empty($name)){
             $error['name'] = "Username is required.";
         }
+        if(!empty($name) && !preg_match("/^([a-zA-Z' ]+)$/", $name)){
+            $error['name'] = "Username must contain only alphabet characters.";
+        }
+        if(!empty($name) && preg_match("/^([a-zA-Z' ]+)$/", $name) && strlen($name)<2){
+            $error['name'] = "Username must contain atleast 2 characters.";
+        }
         if(empty($pass)){
             $error['pass'] = "Password is required.";
+        }
+        if(!empty($pass) && strlen($pass)<6){
+            $error['pass'] = "Password must contain atleast 6 characters.";
         }
         if(empty($phone)){
             $error['phone'] = "Phone is required.";
         }
-        if(!empty($name) && !preg_match("/^([a-zA-Z' ]+)$/", $name)) {
-            $error['name'] = "Username must contain only alphabet characters.";
-        }
-        if(!empty($phone) && !preg_match("/^[0-9]+/", $phone)) {
+        if(!empty($phone) && !preg_match("/^[0-9]+/", $phone)){
             $error['phone'] = "Phone must contain only digit number.";
         }
+        if(!empty($phone) && preg_match("/^[0-9]+/", $phone) && strlen($phone)<10 ){
+            $error['phone'] = "phone must contain atleast 10 digits.";
+        }
         if(count($error)>0){
-            echo "<b>Error: </b><br>";
+            echo "<b style='color: red'>Error(s): </b><br>";
             foreach ($error as $value) {
                 echo "<li>". $value. "</li>";
             }

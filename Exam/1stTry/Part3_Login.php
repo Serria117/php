@@ -39,8 +39,8 @@
 </head>
 <body>
 <?php
-    //The form is only show if no session is created
-    if(empty($_SESSION['login'])){ ?>
+    //The login form only show if no session AND cookie is presented
+    if(empty($_SESSION['login']) && empty($_COOKIE['name']) ){ ?>
     
     <h3>Login form</h3>
     <form action="" method="post">
@@ -59,10 +59,10 @@
             $_SESSION['login'] = true;
             $_SESSION['name'] = $_POST['name'];
             $_SESSION['time'] = time();
-            if (isset($_POST['rmb'])) {
+            if (isset($_POST['rmb'])) { //remember me
                 setcookie('name',$_POST['name'],time()+60*60*24*30);
             }
-            header("Location: part3_login.php"); //reload page with session
+            header("Location: part3_login.php"); //reload page with session enabled
         //log in failed, return the error message
         } else if($login === false) {
             echo "Invalid username or password.";
@@ -76,17 +76,32 @@
  ?>
 
 <?php
-    //if the session has been created after successfully logged in, show the "log out" button
-    if(!empty($_SESSION['login'])){ 
-        $duration = time() - $_SESSION['time'];
-        $timeout = 1000-$duration;
-        echo "Welcome ".$_SESSION['name'];
-        echo "<br>Your session will be expired in: ".$timeout." seconds.";
-        ?>
-        <br><form method='post'><button name='logout'>Log out</button></form>
-    <?php 
+    //if the session or cookie has been created after successfully logged in, show the "log out" button
+    if(!empty($_SESSION['login']) || !empty($_COOKIE['name'])){ 
+        if (isset($_SESSION['login'])){
+            $duration = time() - $_SESSION['time'];
+            $timeout = 1000-$duration; 
+            echo "Welcome ".$_SESSION['name'];
+        }
+        if(isset($_COOKIE['name'])){
+            //if user come back from closed session but remembered by the cookie, then print the "welcome back" message instead.
+            if (!isset($_SESSION['login'])) {
+                echo "Welcome back ".$_COOKIE['name'];
+            }
+            echo "<br>Your cookie is set.";
+        }
+        //Log out button
+        echo "<br><form method='post'><button name='logout'>Log out</button></form>";
     } 
-    //if the "log out" button is pressed, unset the session, clear the cookie and reload the page to show the "login form".
+    //when timeout reachs 0 then unset session and remove cookie (if any)
+    if(isset($timeout) && $timeout<=0){
+        session_destroy();
+        if (isset($_COOKIE['name'])) {
+            setcookie('name','',time()-3600);
+        }
+        header("Location: part3_login.php");
+    }
+    //if the "log out" button is pressed, unset the session, remove the cookie and reload the page to show the "login form".
     if(isset($_POST['logout'])){
         session_destroy();
         if (isset($_COOKIE['name'])) {
