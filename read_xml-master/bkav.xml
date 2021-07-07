@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<inv:invoice xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:inv="http://laphoadon.gdt.gov.vn/2014/09/invoicexml/v1">
+  <inv:invoiceData id="75b57ce8-e37d-40af-8e5f-9f6501da823a">
+    <inv:sellerAppRecordId>fc52dfa4-c274-4dd3-abe4-39e2d380f5cd</inv:sellerAppRecordId>
+    <inv:invoiceAppRecordId>75b57ce8-e37d-40af-8e5f-9f6501da823a</inv:invoiceAppRecordId>
+    <inv:invoiceType>01GTKT</inv:invoiceType>
+    <inv:templateCode>01GTKT0/001</inv:templateCode>
+    <inv:invoiceSeries>NV/19E</inv:invoiceSeries>
+    <inv:invoiceNumber>0001281</inv:invoiceNumber>
+    <inv:invoiceName>Hóa đơn giá trị gia tăng</inv:invoiceName>
+    <inv:invoiceIssuedDate>2020-05-14T00:00:00.000+07:00</inv:invoiceIssuedDate>
+    <inv:currencyCode>VND</inv:currencyCode>
+    <inv:exchangeRate>1</inv:exchangeRate>
+    <inv:invoiceNote></inv:invoiceNote>
+    <inv:adjustmentType>1</inv:adjustmentType>
+    <inv:sellerLegalName>CÔNG TY TNHH NO VA</inv:sellerLegalName>
+    <inv:sellerTaxCode>0303031487</inv:sellerTaxCode>
+    <inv:sellerAddressLine>16-18 Tôn Thất Tùng, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh</inv:sellerAddressLine>
+    <inv:sellerPhoneNumber>(028) 3925 3683    -     Fax: (028) 3925 5783</inv:sellerPhoneNumber>
+    <inv:sellerEmail>nova.ketoan@gmail.com</inv:sellerEmail>
+    <inv:sellerBankName>Ngân hàng Eximbank - Chi nhánh TP. Hồ Chí Minh</inv:sellerBankName>
+    <inv:sellerBankAccount>200014851055052</inv:sellerBankAccount>
+    <inv:sellerContactPersonName>Nguyễn Phúc Tuấn</inv:sellerContactPersonName>
+    <inv:buyerDisplayName></inv:buyerDisplayName>
+    <inv:buyerLegalName>CÔNG TY CỔ PHẦN DỊCH VỤ BƯU CHÍNH VIỄN THÔNG SÀI GÒN</inv:buyerLegalName>
+    <inv:buyerTaxCode>0300849034</inv:buyerTaxCode>
+    <inv:buyerAddressLine>10 Cô Giang, phường Cầu Ông Lãnh, Quận 1, Tp Hồ Chí Minh</inv:buyerAddressLine>
+    <inv:buyerPhoneNumber></inv:buyerPhoneNumber>
+    <inv:buyerEmail>dunghdt@spt.vn</inv:buyerEmail>
+    <inv:buyerBankAccount></inv:buyerBankAccount>
+    <inv:payments>
+      <inv:payment>
+        <inv:paymentMethodName>Tiền mặt/Chuyển khoản</inv:paymentMethodName>
+        <inv:paymentAmount>2058000</inv:paymentAmount>
+      </inv:payment>
+    </inv:payments>
+    <inv:delivery></inv:delivery>
+    <inv:items>
+      <inv:item>
+        <inv:lineNumber>1</inv:lineNumber>
+        <inv:itemCode></inv:itemCode>
+        <inv:itemName>Bộ chuyển USB 2.0 sang Lan 100 (RJ45), Orico UTJ-U2-BK</inv:itemName>
+        <inv:unitCode></inv:unitCode>
+        <inv:unitName>Cái</inv:unitName>
+        <inv:unitPrice>176363.64</inv:unitPrice>
+        <inv:quantity>1</inv:quantity>
+        <inv:itemTotalAmountWithoutVat>176364</inv:itemTotalAmountWithoutVat>
+        <inv:vatPercentage>10</inv:vatPercentage>
+        <inv:vatAmount>0</inv:vatAmount>
+        <inv:promotion>0</inv:promotion>
+      </inv:item>
+      <inv:item>
+        <inv:lineNumber>2</inv:lineNumber>
+        <inv:itemCode></inv:itemCode>
+        <inv:itemName>BỘ NHỚ MÁY TÍNH XÁCH TAY KINGMAX 4GB DDR3L-1600</inv:itemName>
+        <inv:unitCode></inv:unitCode>
+        <inv:unitName>CÁI</inv:unitName>
+        <inv:unitPrice>471818.18</inv:unitPrice>
+        <inv:quantity>1</inv:quantity>
+        <inv:itemTotalAmountWithoutVat>471818</inv:itemTotalAmountWithoutVat>
+        <inv:vatPercentage>10</inv:vatPercentage>
+        <inv:vatAmount>0</inv:vatAmount>
+        <inv:promotion>0</inv:promotion>
+      </inv:item>
+      <inv:item>
+        <inv:lineNumber>3</inv:lineNumber>
+        <inv:itemCode></inv:itemCode>
+        <inv:itemName>Ổ cứng 2.5" Seagate 1TB</inv:itemName>
+        <inv:unitCode></inv:unitCode>
+        <inv:unitName>Cái</inv:unitName>
+        <inv:unitPrice>1077272.73</inv:unitPrice>
+        <inv:quantity>1</inv:quantity>
+        <inv:itemTotalAmountWithoutVat>1077273</inv:itemTotalAmountWithoutVat>
+        <inv:vatPercentage>10</inv:vatPercentage>
+        <inv:vatAmount>0</inv:vatAmount>
+        <inv:promotion>0</inv:promotion>
+      </inv:item>
+      <inv:item>
+        <inv:lineNumber>4</inv:lineNumber>
+        <inv:itemCode></inv:itemCode>
+        <inv:itemName>Cổng nối mạng TL-SF1008D TP-LINK</inv:itemName>
+        <inv:unitCode></inv:unitCode>
+        <inv:unitName>Chiếc</inv:unitName>
+        <inv:unitPrice>145454.55</inv:unitPrice>
+        <inv:quantity>1</inv:quantity>
+        <inv:itemTotalAmountWithoutVat>145455</inv:itemTotalAmountWithoutVat>
+        <inv:vatPercentage>10</inv:vatPercentage>
+        <inv:vatAmount>0</inv:vatAmount>
+        <inv:promotion>0</inv:promotion>
+      </inv:item>
+    </inv:items>
+    <inv:invoiceTaxBreakdowns>
+      <inv:invoiceTaxBreakdown>
+        <inv:vatPercentage>10</inv:vatPercentage>
+        <inv:vatTaxableAmount>176364</inv:vatTaxableAmount>
+        <inv:vatTaxAmount>17636</inv:vatTaxAmount>
+      </inv:invoiceTaxBreakdown>
+      <inv:invoiceTaxBreakdown>
+        <inv:vatPercentage>10</inv:vatPercentage>
+        <inv:vatTaxableAmount>471818</inv:vatTaxableAmount>
+        <inv:vatTaxAmount>47182</inv:vatTaxAmount>
+      </inv:invoiceTaxBreakdown>
+      <inv:invoiceTaxBreakdown>
+        <inv:vatPercentage>10</inv:vatPercentage>
+        <inv:vatTaxableAmount>1077273</inv:vatTaxableAmount>
+        <inv:vatTaxAmount>107727</inv:vatTaxAmount>
+      </inv:invoiceTaxBreakdown>
+      <inv:invoiceTaxBreakdown>
+        <inv:vatPercentage>10</inv:vatPercentage>
+        <inv:vatTaxableAmount>145455</inv:vatTaxableAmount>
+        <inv:vatTaxAmount>14545</inv:vatTaxAmount>
+      </inv:invoiceTaxBreakdown>
+    </inv:invoiceTaxBreakdowns>
+    <inv:sumOfTotalLineAmountWithoutVAT>0</inv:sumOfTotalLineAmountWithoutVAT>
+    <inv:totalAmountWithoutVAT>1870910</inv:totalAmountWithoutVAT>
+    <inv:totalVATAmount>187090</inv:totalVATAmount>
+    <inv:totalAmountWithVAT>2058000</inv:totalAmountWithVAT>
+    <inv:totalAmountWithVATFrn>0</inv:totalAmountWithVATFrn>
+    <inv:totalAmountWithVATInWords>Hai triệu không trăm năm mươi tám nghìn đồng chẵn</inv:totalAmountWithVATInWords>
+    <inv:discountAmount>0</inv:discountAmount>
+    <inv:isDiscountAmtPos>false</inv:isDiscountAmtPos>
+    <inv:userDefines></inv:userDefines>
+  </inv:invoiceData>
+  <inv:controlData>
+    <inv:systemCode></inv:systemCode>
+  </inv:controlData><Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"></CanonicalizationMethod><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"></SignatureMethod><Reference URI="#75b57ce8-e37d-40af-8e5f-9f6501da823a"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"></Transform></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></DigestMethod><DigestValue>rj3d09ppfuRLwzlnqv9BgGwIYzU=</DigestValue></Reference></SignedInfo><SignatureValue>lpvNT/glBWTMup2CpG2QPXyj/RbXeHfxC1ZklcPh+eusS5GtWL4oLMDzjDZ7DN2F6Uv5VtdjuHpIZRrHGKUEl6y06fOD1y2ojoRv7GeQhsnI+bjVLm5sI+B4s9RhjzgnkJPOT1kxqdwNkSBYVcCNSSMkYFLrNX+BSRIjrOR/bmQ=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>2z8UGmysld7epGR2AWoNGoz6VJzUfIqyfjWn2N0UcOm/Lmtli3NgvomgsS53MB11lFqjQSGWPVXWVMZs+lCbIYITM41Bhf3289qKTssuFhCiVr/Ne+gVVDEpBXyzxKLuNfgS3AtY4t1C/qwcpJuS2UsS9ct94y6cAqX8e2m+eok=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509IssuerSerial><X509IssuerName>CN=BkavCA, O=Bkav Corporation, L=Hanoi, C=VN</X509IssuerName><X509SerialNumber>111671495142800521698649193196258071029</X509SerialNumber></X509IssuerSerial><X509SubjectName>C=VN, ST=Hồ Chí Minh, CN=Công ty TNHH NO VA, UID=MST:0303031487</X509SubjectName><X509Certificate>MIIECDCCAvCgAwIBAgIQVAMly+6GMLOfvlrFx9gR9TANBgkqhkiG9w0BAQUFADBJMQswCQYDVQQGEwJWTjEOMAwGA1UEBxMFSGFub2kxGTAXBgNVBAoTEEJrYXYgQ29ycG9yYXRpb24xDzANBgNVBAMTBkJrYXZDQTAeFw0yMDA1MDYxNTM1NTdaFw0yNDA1MTAwODAzMDdaMGQxHjAcBgoJkiaJk/IsZAEBDA5NU1Q6MDMwMzAzMTQ4NzEcMBoGA1UEAwwTQ8O0bmcgdHkgVE5ISCBOTyBWQTEXMBUGA1UECAwOSOG7kyBDaMOtIE1pbmgxCzAJBgNVBAYTAlZOMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDbPxQabKyV3t6kZHYBag0ajPpUnNR8irJ+NafY3RRw6b8ua2WLc2C+iaCxLncwHXWUWqNBIZY9VdZUxmz6UJshghMzjUGF/fbz2opOyy4WEKJWv8176BVUMSkFfLPEou41+BLcC1ji3UL+rBykm5LZSxL1y33jLpwCpfx7ab56iQIDAQABo4IBUzCCAU8wMQYIKwYBBQUHAQEEJTAjMCEGCCsGAQUFBzABhhVodHRwOi8vb2NzcC5ia2F2Y2Eudm4wHQYDVR0OBBYEFOwleeu+lGEeWJlfJHczmlUuX/4uMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUHrAPSJff0MNnp0aEO1g7iA1TlIYwfwYDVR0fBHgwdjB0oCOgIYYfaHR0cDovL2NybC5ia2F2Y2Eudm4vQmthdkNBLmNybKJNpEswSTEPMA0GA1UEAwwGQmthdkNBMRkwFwYDVQQKDBBCa2F2IENvcnBvcmF0aW9uMQ4wDAYDVQQHDAVIYW5vaTELMAkGA1UEBhMCVk4wDgYDVR0PAQH/BAQDAgTwMB8GA1UdJQQYMBYGCCsGAQUFBwMEBgorBgEEAYI3CgMMMBoGA1UdEQQTMBGBD25vdmFAaGNtLnZubi52bjANBgkqhkiG9w0BAQUFAAOCAQEAEJYniBPlsHT+LgC+7se0nA/Pelg8Oaru/5dY1HKMH35RITMjjvK8YrQMsWEQvop+/Et2f4v98jHNO0oIgt2NWX0LYmNxrFR7n/T46WUqqEP4piYEKW45eiPj0M5HgphK66ssu3x1BBUpE0BZ+ankVmrnkcl8Lnpf4+d4PNhxheB3Ck8savoRmeFmvqMeyZ2M6u9vTPGke/r8O7PskQ1+Xa5T+Fw1P6j37q23Q/dHZoZ/64B+qBpJ8bumUHn4eaeIIYfpaAfQiL+cbWIyynCeBjwKUwF51/ZIlBx/HbtA4rC04duSRkH73bGj7OGkJn0hx+Y3PKF2DH0+6zm9N0FzyA==</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="Timestamp" Target=""><date>2020/5/14</date><time>10:55:16</time><timezone>UTC +7</timezone></SignatureProperty></SignatureProperties></Object></Signature>
+</inv:invoice>
