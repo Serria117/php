@@ -4,8 +4,17 @@
 			"path": "."
 		},
 		{
-			"path": "C:\\Users\\hadt2\\OneDrive\\IT\\SQL"
+			"path": "..\\AdminCP"
+		},
+		{
+			"path": "\\\\14.225.19.58\\xampp\\htdocs\\customer"
+		},
+		{
+			"name": "eProject_Sem1",
+			"path": "..\\eProject_Sem1"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "project"
+	}
 }
